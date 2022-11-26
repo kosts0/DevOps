@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
 builder.Services.AddDbContext<DevOpsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevOpsContext") ?? throw new InvalidOperationException("Connection string 'DevOpsContext' not found.")));
 
