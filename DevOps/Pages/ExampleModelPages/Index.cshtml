@@ -1,0 +1,48 @@
+﻿@page
+@model DevOps.Pages.ExampleModelPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExapmleModel[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExapmleModel[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExapmleModel[0].DateTimeCreated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ExapmleModel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeCreated)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ExapmleModelID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ExapmleModelID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ExapmleModelID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
